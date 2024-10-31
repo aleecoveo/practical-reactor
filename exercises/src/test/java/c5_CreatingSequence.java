@@ -318,7 +318,7 @@ public class c5_CreatingSequence {
     public void multi_threaded_producer() {
         //todo: find a bug and fix it!
         CountDownLatch countDownLatch = new CountDownLatch(100);
-        Flux<Integer> producer = Flux.push(sink -> {
+        Flux<Integer> producer = Flux.create(sink -> {
             for (int i = 0; i < 100; i++) {
                 int finalI = i;
                 new Thread(() ->
